@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { XMarkIcon, LightBulbIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
 interface TutorialModalProps {
   isOpen: boolean;
@@ -40,8 +40,8 @@ export function TutorialModal({ isOpen, onClose }: TutorialModalProps) {
       <div className="bg-gray-900 border border-gray-700 rounded-lg shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-6 border-b border-gray-700">
           <h2 className="text-xl font-bold flex items-center">
-            <LightBulbIcon className="h-6 w-6 text-yellow-400 mr-2" />
-            Bienvenue sur DorkJobFinder Pro
+            <EnvelopeIcon className="h-6 w-6 text-blue-400 mr-2" />
+            Bienvenue sur EmailHunter Pro
           </h2>
           <button
             onClick={onClose}
@@ -54,53 +54,53 @@ export function TutorialModal({ isOpen, onClose }: TutorialModalProps) {
         <div className="p-6">
           {step === 1 && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-blue-400">Qu'est-ce que le Google Dorking?</h3>
+              <h3 className="text-lg font-semibold text-blue-400">Qu&apos;est-ce que le Google Dorking pour les emails?</h3>
               <p>
                 Le <span className="text-yellow-400 font-medium">Google Dorking</span> (ou Google Hacking) est une technique avancée de recherche
                 qui utilise des opérateurs spéciaux de Google pour affiner les résultats et trouver
-                des informations précises qui seraient autrement difficiles à découvrir.
+                des informations précises, comme des adresses email professionnelles.
               </p>
               <p>
-                En utilisant des commandes comme <code className="bg-gray-800 px-1 rounded">site:</code>, <code className="bg-gray-800 px-1 rounded">intitle:</code>,
-                <code className="bg-gray-800 px-1 rounded">inurl:</code>, ou <code className="bg-gray-800 px-1 rounded">filetype:</code>,
-                vous pouvez cibler spécifiquement des sites web, des titres de pages, des URLs
-                ou des types de fichiers.
+                En utilisant des commandes comme <code className="bg-gray-800 px-1 rounded">site:</code>, <code className="bg-gray-800 px-1 rounded">intext:</code>,
+                <code className="bg-gray-800 px-1 rounded">@domaine.com</code>, ou <code className="bg-gray-800 px-1 rounded">filetype:</code>,
+                vous pouvez cibler spécifiquement des sites web, du contenu, des domaines d&apos;emails
+                ou des types de fichiers contenant des adresses email.
               </p>
               <div className="bg-gray-800 p-3 rounded-md">
-                <p className="text-gray-300 mb-2">Exemple de requête dork:</p>
-                <code className="text-green-400">site:careers.thalesgroup.com "ingénieur bureau d'études" filetype:pdf</code>
-                <p className="text-gray-400 mt-2 text-sm">Cela recherche des documents PDF sur le site de carrières Thales contenant la phrase "ingénieur bureau d'études"</p>
+                <p className="text-gray-300 mb-2">Exemple de requête dork pour les emails:</p>
+                <code className="text-green-400">site:thalesgroup.com &quot;RH&quot; OR &quot;recrutement&quot; intext:@thalesgroup.com -inurl:pdf</code>
+                <p className="text-gray-400 mt-2 text-sm">Cela recherche des pages sur le site Thales contenant des termes liés aux RH et des adresses email du domaine, excluant les PDF</p>
               </div>
             </div>
           )}
 
           {step === 2 && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-blue-400">Comment utiliser DorkJobFinder Pro</h3>
+              <h3 className="text-lg font-semibold text-blue-400">Comment utiliser EmailHunter Pro</h3>
               <p>
-                DorkJobFinder Pro est un outil puissant conçu pour vous aider à trouver des offres d'emploi
-                en ingénierie mécanique qui ne sont pas facilement accessibles sur les sites d'emploi standards.
+                EmailHunter Pro est un outil puissant conçu pour vous aider à trouver des adresses email
+                professionnelles, notamment pour contacter des recruteurs ou des responsables RH.
               </p>
               <p>
-                L'application génère automatiquement des requêtes Google optimisées (Dorks) à partir de vos mots-clés
-                et critères, puis vous permet de les rechercher directement sur Google ou de les copier pour une utilisation ultérieure.
+                L&apos;application génère automatiquement des requêtes Google optimisées (Dorks) à partir de vos critères de recherche,
+                puis vous permet de les rechercher directement sur Google ou de les copier pour une utilisation ultérieure.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <div className="bg-gray-800 p-4 rounded-md">
-                  <h4 className="font-medium text-blue-300 mb-2">Étape 1: Sélectionnez un mot-clé</h4>
-                  <p className="text-sm">Choisissez parmi les catégories prédéfinies ou ajoutez vos propres mots-clés personnalisés.</p>
+                  <h4 className="font-medium text-blue-300 mb-2">Étape 1: Choisissez un mot-clé</h4>
+                  <p className="text-sm">Sélectionnez des termes comme &quot;RH&quot;, &quot;recrutement&quot;, &quot;responsable&quot;, etc. ou utilisez vos propres mots-clés.</p>
                 </div>
                 <div className="bg-gray-800 p-4 rounded-md">
-                  <h4 className="font-medium text-blue-300 mb-2">Étape 2: Affinez votre recherche</h4>
-                  <p className="text-sm">Utilisez les filtres (localisation, entreprise, format, etc.) pour cibler votre recherche.</p>
+                  <h4 className="font-medium text-blue-300 mb-2">Étape 2: Spécifiez le domaine</h4>
+                  <p className="text-sm">Choisissez le domaine d&apos;entreprise (ex: airbus.com) pour cibler votre recherche d&apos;emails.</p>
                 </div>
                 <div className="bg-gray-800 p-4 rounded-md">
                   <h4 className="font-medium text-blue-300 mb-2">Étape 3: Générez des requêtes</h4>
-                  <p className="text-sm">Cliquez sur le bouton "Générer des requêtes" pour créer des dorks optimisés.</p>
+                  <p className="text-sm">Cliquez sur le bouton pour créer des dorks optimisés pour trouver des emails.</p>
                 </div>
                 <div className="bg-gray-800 p-4 rounded-md">
                   <h4 className="font-medium text-blue-300 mb-2">Étape 4: Recherchez ou sauvegardez</h4>
-                  <p className="text-sm">Cliquez sur "Rechercher sur Google" pour ouvrir directement les résultats ou sauvegardez vos requêtes préférées.</p>
+                  <p className="text-sm">Utilisez les requêtes générées directement sur Google ou sauvegardez-les pour plus tard.</p>
                 </div>
               </div>
             </div>
@@ -108,70 +108,70 @@ export function TutorialModal({ isOpen, onClose }: TutorialModalProps) {
 
           {step === 3 && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-blue-400">Fonctionnalités avancées</h3>
+              <h3 className="text-lg font-semibold text-blue-400">Types de recherches d&apos;emails</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-gray-800 p-4 rounded-md">
-                  <h4 className="font-medium text-blue-300 mb-2">Catégories spécialisées</h4>
-                  <p className="text-sm">Explorez des mots-clés organisés par logiciels, compétences, domaines et postes recherchés.</p>
+                  <h4 className="font-medium text-blue-300 mb-2">Recherche basique d&apos;emails</h4>
+                  <p className="text-sm">Trouve des emails sur un domaine spécifique associés à un mot-clé ou un poste.</p>
                 </div>
                 <div className="bg-gray-800 p-4 rounded-md">
-                  <h4 className="font-medium text-blue-300 mb-2">Mots-clés personnalisés</h4>
-                  <p className="text-sm">Ajoutez et sauvegardez vos propres mots-clés pour des recherches futures.</p>
+                  <h4 className="font-medium text-blue-300 mb-2">Pages de contact</h4>
+                  <p className="text-sm">Cible les pages de contact des entreprises où des emails peuvent être mentionnés.</p>
                 </div>
                 <div className="bg-gray-800 p-4 rounded-md">
-                  <h4 className="font-medium text-blue-300 mb-2">Requêtes optimisées</h4>
-                  <p className="text-sm">L'algorithme génère des requêtes sophistiquées qui ciblent les sites d'emploi spécialisés.</p>
+                  <h4 className="font-medium text-blue-300 mb-2">Emails dans des documents</h4>
+                  <p className="text-sm">Recherche des emails dans des fichiers PDF, Word, Excel, etc.</p>
                 </div>
                 <div className="bg-gray-800 p-4 rounded-md">
-                  <h4 className="font-medium text-blue-300 mb-2">Historique et sauvegarde</h4>
-                  <p className="text-sm">Retrouvez facilement vos recherches précédentes et vos requêtes sauvegardées.</p>
+                  <h4 className="font-medium text-blue-300 mb-2">Recherche sur LinkedIn</h4>
+                  <p className="text-sm">Cible les profils LinkedIn où des emails professionnels peuvent être mentionnés.</p>
                 </div>
               </div>
               <p className="mt-4 text-gray-300">
-                <strong>Astuce pro:</strong> Combinez plusieurs filtres pour des résultats plus précis. Par exemple, utilisez à la fois la localisation et
-                le format de fichier pour trouver des documents PDF d'offres d'emploi dans votre région.
+                <strong>Astuce pro:</strong> Les formats d&apos;emails d&apos;entreprise suivent généralement un modèle comme prenom.nom@domaine.com ou p.nom@domaine.com.
+                Vous pouvez rechercher le format utilisé par l&apos;entreprise en utilisant le type de recherche &quot;Format d&apos;email&quot;.
               </p>
             </div>
           )}
 
           {step === 4 && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-blue-400">Pourquoi utiliser des techniques de dorking?</h3>
+              <h3 className="text-lg font-semibold text-blue-400">Pourquoi chercher des emails professionnels?</h3>
               <div className="bg-gray-800 p-5 rounded-md space-y-3">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 bg-blue-900 rounded-full p-1">
                     <span className="block w-4 h-4 text-center text-blue-200 font-bold">1</span>
                   </div>
-                  <p className="ml-3 text-sm">Découvrir des offres d'emploi <span className="text-green-400">cachées</span> qui n'apparaissent pas sur les portails d'emploi traditionnels</p>
+                  <p className="ml-3 text-sm">Contacter <span className="text-green-400">directement</span> les recruteurs sans passer par des plateformes génériques</p>
                 </div>
                 <div className="flex items-start">
                   <div className="flex-shrink-0 bg-blue-900 rounded-full p-1">
                     <span className="block w-4 h-4 text-center text-blue-200 font-bold">2</span>
                   </div>
-                  <p className="ml-3 text-sm">Trouver des documents <span className="text-green-400">spécifiques</span> comme des fiches de poste détaillées en format PDF</p>
+                  <p className="ml-3 text-sm">Se démarquer des autres candidats avec une approche <span className="text-green-400">personnalisée</span></p>
                 </div>
                 <div className="flex items-start">
                   <div className="flex-shrink-0 bg-blue-900 rounded-full p-1">
                     <span className="block w-4 h-4 text-center text-blue-200 font-bold">3</span>
                   </div>
-                  <p className="ml-3 text-sm">Cibler des <span className="text-green-400">entreprises précises</span> et leurs pages de carrières internes</p>
+                  <p className="ml-3 text-sm">Cibler des <span className="text-green-400">services RH précis</span> plutôt que des adresses génériques</p>
                 </div>
                 <div className="flex items-start">
                   <div className="flex-shrink-0 bg-blue-900 rounded-full p-1">
                     <span className="block w-4 h-4 text-center text-blue-200 font-bold">4</span>
                   </div>
-                  <p className="ml-3 text-sm">Obtenir des <span className="text-green-400">résultats plus récents</span> avec le filtrage par date</p>
+                  <p className="ml-3 text-sm">Établir un <span className="text-green-400">premier contact</span> avant même qu&apos;une offre ne soit publiée</p>
                 </div>
                 <div className="flex items-start">
                   <div className="flex-shrink-0 bg-blue-900 rounded-full p-1">
                     <span className="block w-4 h-4 text-center text-blue-200 font-bold">5</span>
                   </div>
-                  <p className="ml-3 text-sm">Se démarquer dans votre recherche d'emploi avec une approche plus <span className="text-green-400">sophistiquée</span></p>
+                  <p className="ml-3 text-sm">Obtenir des <span className="text-green-400">informations précieuses</span> sur l&apos;entreprise et ses besoins</p>
                 </div>
               </div>
               <p className="mt-4 text-gray-300 italic">
-                Le dorking est un processus qui demande du temps et de la patience, mais qui peut révéler des opportunités
-                professionnelles que peu de candidats découvrent.
+                Rappelez-vous: utilisez ces techniques de façon éthique et respectueuse. Les emails obtenus doivent être utilisés
+                uniquement pour des communications professionnelles légitimes.
               </p>
             </div>
           )}
@@ -179,25 +179,25 @@ export function TutorialModal({ isOpen, onClose }: TutorialModalProps) {
           {step === 5 && (
             <div className="space-y-4 text-center">
               <div className="py-6">
-                <img
-                  src="https://img.icons8.com/fluency/96/000000/gift.png"
-                  alt="Gift"
-                  className="mx-auto h-24 w-24"
-                />
+                <EnvelopeIcon className="h-24 w-24 mx-auto text-blue-400" />
               </div>
-              <h3 className="text-xl font-semibold text-yellow-400">Un cadeau pour vous</h3>
+              <h3 className="text-xl font-semibold text-yellow-400">Un conseil supplémentaire</h3>
               <p className="text-lg">
-                Cet outil a été spécialement conçu pour <span className="font-bold text-blue-400">Clément Baty</span>
+                Une fois que vous avez trouvé une adresse email, <span className="font-bold text-blue-400">personnalisez votre message</span>
               </p>
               <p className="text-gray-300">
-                Pour vous aider dans votre recherche d'emploi en ingénierie mécanique.
+                Les recruteurs reçoivent des dizaines de candidatures génériques. Pour maximiser vos chances:
               </p>
               <div className="bg-blue-900 bg-opacity-30 p-5 rounded-lg mt-6 border border-blue-700">
-                <p className="italic text-gray-300">
-                  "Je vous offre cet outil pour faciliter votre recherche d'emploi et vous permettre de trouver des opportunités professionnelles à la hauteur de vos compétences."
-                </p>
-                <p className="mt-4 font-medium text-blue-300">
-                  - Clément Bastien
+                <ul className="text-left space-y-2 text-gray-300">
+                  <li>• Personnalisez votre objet d&apos;email</li>
+                  <li>• Mentionnez le nom du destinataire</li>
+                  <li>• Référencez des projets spécifiques de l&apos;entreprise</li>
+                  <li>• Expliquez pourquoi vous êtes intéressé par cette entreprise en particulier</li>
+                  <li>• Soyez concis mais démontrez votre valeur ajoutée</li>
+                </ul>
+                <p className="mt-4 text-center font-medium text-blue-300">
+                  Bonne chasse aux emails!
                 </p>
               </div>
             </div>
